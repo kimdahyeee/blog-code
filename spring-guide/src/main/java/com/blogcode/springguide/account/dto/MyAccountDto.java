@@ -4,10 +4,9 @@ import com.blogcode.springguide.account.domain.Account;
 import com.blogcode.springguide.account.domain.Email;
 import com.blogcode.springguide.account.domain.Password;
 import com.blogcode.springguide.domain.Address;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MyAccountDto {
 
     public static class SignUpReq {
