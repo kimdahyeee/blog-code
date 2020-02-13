@@ -1,6 +1,7 @@
 package com.blogcode.springguide.order.domain;
 
 import com.blogcode.springguide.domain.Address;
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.util.Assert;
 
@@ -18,10 +19,11 @@ public class Order {
 
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @Builder
     public Order(Address address, Orderer orderer, List<ProductItem> productItems) {
         Assert.notNull(address, "address must not be null");
         Assert.notNull(orderer, "orderer must not be null");
-        Assert.notEmpty(orderItems, "orderItems must not be empty");
+        Assert.notEmpty(productItems, "productItems must not be empty");
 
         this.address = address;
         this.orderer = orderer;

@@ -5,6 +5,7 @@ import com.blogcode.springguide.account.domain.Email;
 import com.blogcode.springguide.account.domain.Password;
 import com.blogcode.springguide.domain.Address;
 import lombok.*;
+import org.springframework.util.Assert;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MyAccountDto {
@@ -17,6 +18,11 @@ public class MyAccountDto {
 
         @Builder
         public SignUpReq(Email email, String name, String password, Address address) {
+            Assert.notNull(email, "email must not be null");
+            Assert.notNull(name, "name must not be null");
+            Assert.notNull(password, "password must not be null");
+            Assert.notNull(address, "address must not be null");
+
             this.email = email;
             this.name = name;
             this.password = password;

@@ -1,5 +1,6 @@
 package com.blogcode.springguide.order.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import java.math.BigDecimal;
@@ -12,5 +13,11 @@ public class ProductItem {
     private String name;
 
     private BigDecimal price;
+
+    @Builder
+    public ProductItem(String name, BigDecimal price) {
+        this.name = name;
+        this.price = price;
+    }
 
 }
