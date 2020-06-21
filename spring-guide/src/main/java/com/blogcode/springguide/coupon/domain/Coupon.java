@@ -3,10 +3,11 @@ package com.blogcode.springguide.coupon.domain;
 import com.blogcode.springguide.account.domain.Account;
 import com.blogcode.springguide.coupon.exception.CouponAlreadyUsedException;
 import com.blogcode.springguide.coupon.exception.CouponExpireException;
-import lombok.Builder;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@Data
 public class Coupon {
     private CouponCode couponCode;
     private boolean used;
@@ -36,11 +37,11 @@ public class Coupon {
     }
 
     private void verifyExpiration() {
-        if(used) throw new CouponExpireException();
+        if(isExpiration()) throw new CouponAlreadyUsedException();
     }
 
     private void verifyUsed() {
-        if(isExpiration()) throw new CouponAlreadyUsedException();
+        if(used) throw new CouponExpireException();
     }
 
 }
